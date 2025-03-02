@@ -4,7 +4,7 @@ public class Exceptions {
     public static void main(String[] args) {
         String[] strArray = {"str1", "str2", "str3"};
         System.out.println("========");
-        pause();
+        //pause();
         System.out.println("Ура");
         uncheckedException(strArray);
     }
@@ -22,7 +22,7 @@ public class Exceptions {
         System.out.println("program is working");
     }
 
-    private static void pause() {
+    public void pause() {
         try {
             checkedException();
         } catch (InterruptedException e) {
