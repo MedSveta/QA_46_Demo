@@ -35,6 +35,51 @@ public class CssSelectors {
         driver.quit();
     }
 
+    @Test
+    public void selectorElementsPage() {
+        driver.get("https://demoqa.com/elements");
+        driver.manage().window().maximize();
+        hideBanner();
+        hideFooter();
+
+        //WebElement textBox = driver.findElement(By.cssSelector("li[id='item-0']"));
+        //WebElement textBox = driver.findElement(By.id("item-0"));
+        WebElement textBox = driver.findElement(By.cssSelector("#item-0"));
+        System.out.println(textBox.getAttribute("class"));
+
+        //WebElement checkBox = driver.findElement(By.cssSelector("[id='item-1']"));
+        //WebElement checkBox = driver.findElement(By.id("item-1"));
+        //WebElement checkBox = driver.findElement(By.cssSelector("#item-1"));
+        WebElement checkBox = driver.findElement(By.cssSelector("li[id='item-1']"));
+        checkBox.click();
+
+
+        pause(5);
+
+        driver.quit();
+    }
+
+    @Test
+    public void selectorRadioButtonPage() {
+        driver.get("https://demoqa.com/radio-button");
+        driver.manage().window().maximize();
+        hideBanner();
+        hideFooter();
+
+        //WebElement radioButtonYes = driver.findElement(By.cssSelector("label[for='yesRadio']"));
+        //WebElement radioButtonYes = driver.findElement(By.cssSelector("[for='yesRadio']"));
+        //WebElement radioButtonYes = driver.findElement(By.cssSelector(".custom-control-label"));
+        WebElement radioButtonYes = driver.findElement(By.className("custom-control-label"));
+        radioButtonYes.click();
+        pause(5);
+        //WebElement impressiveButton = driver.findElement(By.id("impressiveRadio"));
+        WebElement impressiveButton = driver.findElement(By.cssSelector("[for='impressiveRadio']"));
+        impressiveButton.click();
+        pause(5);
+
+        driver.quit();
+    }
+
     public void pause(int time) {
         try {
             Thread.sleep(5000);
