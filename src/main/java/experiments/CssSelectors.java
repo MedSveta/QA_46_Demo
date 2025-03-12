@@ -20,7 +20,6 @@ public class CssSelectors {
         hideFooter();
 
         pause(3);
-
         WebElement imgTools = driver.findElement(By.cssSelector("img[src='/images/Toolsqa.jpg']"));
         System.out.println(imgTools.getTagName());
         System.out.println(imgTools.getAttribute("src"));
@@ -29,7 +28,18 @@ public class CssSelectors {
         pause(5);
         WebElement divElements = driver.findElement(By.cssSelector(".card-up"));
         divElements.click();
+        driver.navigate().back();
+        pause(5);
 
+        WebElement divWidgets = driver.findElement(By
+                .cssSelector("div[class='category-cards'] div[class='card mt-4 top-card']:nth-child(4)"));
+        divWidgets.click();
+        driver.navigate().back();
+        pause(5);
+        WebElement divWidgetsText = driver.findElement(By
+                .cssSelector("div[class='category-cards'] " +
+                        "div[class='card mt-4 top-card']:nth-child(4) div[class='card-body'] h5"));
+        System.out.println(divWidgetsText.getText());
         pause(5);
         //driver.close();
         driver.quit();
@@ -69,11 +79,14 @@ public class CssSelectors {
         //WebElement radioButtonYes = driver.findElement(By.cssSelector("label[for='yesRadio']"));
         //WebElement radioButtonYes = driver.findElement(By.cssSelector("[for='yesRadio']"));
         //WebElement radioButtonYes = driver.findElement(By.cssSelector(".custom-control-label"));
-        WebElement radioButtonYes = driver.findElement(By.className("custom-control-label"));
+        //WebElement radioButtonYes = driver.findElement(By.className("custom-control-label"));
+        WebElement radioButtonYes = driver.findElement(By.xpath("//label[@for='yesRadio']"));
         radioButtonYes.click();
         pause(5);
+
         //WebElement impressiveButton = driver.findElement(By.id("impressiveRadio"));
-        WebElement impressiveButton = driver.findElement(By.cssSelector("[for='impressiveRadio']"));
+        //WebElement impressiveButton = driver.findElement(By.cssSelector("[for='impressiveRadio']"));
+        WebElement impressiveButton = driver.findElement(By.xpath("//*[@for='impressiveRadio']"));
         impressiveButton.click();
         pause(5);
 
