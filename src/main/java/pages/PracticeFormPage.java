@@ -1,6 +1,9 @@
 package pages;
 
+import dto.Student;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
@@ -11,9 +14,23 @@ public class PracticeFormPage extends BasePage{
                 , 10), this);
     }
 
+    @FindBy(xpath = "//input[@placeholder='First Name']")
+    WebElement inputName;
+    @FindBy(id = "lastName")
+    WebElement inputLastName;
+    @FindBy(id = "userEmail")
+    WebElement inputEmail;
+    @FindBy(css = "input[placeholder='Mobile Number']")
+    WebElement inputMobile;
 
-    public void typePracticeForm(){
+
+    public void typePracticeForm(Student student){
         hideBanner();
         hideFooter();
+        inputName.sendKeys(student.getName());
+        inputLastName.sendKeys(student.getLastName());
+        inputEmail.sendKeys(student.getEmail());
+        inputMobile.sendKeys(student.getMobile());
+
     }
 }
