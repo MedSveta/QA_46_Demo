@@ -1,7 +1,9 @@
 package dto;
 
 import emums.Gender;
+import emums.Hobbies;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Student {
@@ -12,7 +14,7 @@ public class Student {
     private String mobile;
     private String dateOfBirth;
     private String subjects;
-    private String hobbies;
+    private List<Hobbies> hobbies;
     private String picture;
     private String address;
     private String state;
@@ -23,7 +25,7 @@ public class Student {
     public Student(String name, String lastName,
                    String email, Gender gender,
                    String mobile, String dateOfBirth, String subjects,
-                   String hobbies, String picture, String address,
+                   List<Hobbies> hobbies, String picture, String address,
                    String state, String city) {
         this.name = name;
         this.lastName = lastName;
@@ -125,11 +127,11 @@ public class Student {
         this.subjects = subjects;
     }
 
-    public String getHobbies() {
+    public List<Hobbies> getHobbies() {
         return hobbies;
     }
 
-    public void setHobbies(String hobbies) {
+    public void setHobbies(List<Hobbies> hobbies) {
         this.hobbies = hobbies;
     }
 
